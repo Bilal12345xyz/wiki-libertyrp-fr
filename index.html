@@ -1,0 +1,1176 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liberty RP - Serveur FiveM RolePlay</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#d946ef",
+            secondary: "#a855f7",
+            dark: "#1e1b4b",
+            light: "#f5d0fe",
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    /* Arrière-plan flou avec transparence */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://i.imgur.com/tnp9CaG.jpeg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.3;
+      filter: blur(5px);
+      z-index: -1;
+    }
+
+    /* Ton style existant */
+    .gradient-bg {
+      background: linear-gradient(135deg, #d946ef 0%, #a855f7 100%);
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: white;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-100 font-sans">
+    <!-- Header -->
+    <header class="gradient-bg shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-shield-alt text-2xl text-white"></i>
+                <h1 class="text-2xl font-bold text-white">Liberty <span class="text-yellow-300">RP</span></h1>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-white font-medium">Accueil</a>
+                <a href="#rules" class="nav-link text-white font-medium">Règlement</a>
+                <a href="#shop" class="nav-link text-white font-medium">Boutique</a>
+                <a href="#staff" class="nav-link text-white font-medium">Staff</a>
+                <a href="#contact" class="nav-link text-white font-medium">Contact</a>
+            </nav>
+            <button class="md:hidden text-white">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="gradient-bg absolute top-0 left-0 w-full h-full transform rotate-180 opacity-20"></div>
+        <div class="container mx-auto px-4 py-32 relative z-10 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-white">
+                Bienvenue sur <span class="text-primary">Liberty RP</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-3xl mx-auto">
+                Le serveur FiveM RolePlay le plus immersif et respectueux de la communauté.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://discord.gg/libertyfa" class="bg-primary hover:bg-purple-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    Nous rejoindre
+                </a>
+                <a href="https://docs.google.com/presentation/d/1Gb8S18t3k-hzBuxp4oi8PPb9nTBRIcGHhU9tt4ioz4I/edit?usp=sharing" class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    Voir le règlement
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Server Features -->
+    <section class="bg-gray-800 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-gray-700 p-6 rounded-xl shadow-lg">
+                    <div class="text-4xl font-bold text-primary mb-2">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Mappings Exclusifs</h3>
+                    <div class="text-gray-300">Découvrez des mappings uniques que vous ne trouverez nulle part ailleurs</div>
+                </div>
+                <div class="bg-gray-700 p-6 rounded-xl shadow-lg">
+                    <div class="text-4xl font-bold text-primary mb-2">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Serveur Unique</h3>
+                    <div class="text-gray-300">Une expérience de jeu totalement inédite et immersive</div>
+                </div>
+                <div class="bg-gray-700 p-6 rounded-xl shadow-lg">
+                    <div class="text-4xl font-bold text-primary mb-2">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Prix Imbattables</h3>
+                    <div class="text-gray-300">Des offres exceptionnelles pour une expérience premium</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section id="rules" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-white">
+                    <span class="text-primary">Règlement</span> du serveur
+                </h2>
+                <div class="w-24 h-1 bg-primary mx-auto"></div>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
+                    Pour garantir une expérience de jeu optimale à tous, veuillez respecter ces règles.
+                </p>
+                <a href="https://docs.google.com/presentation/d/1Gb8S18t3k-hzBuxp4oi8PPb9nTBRIcGHhU9tt4ioz4I/edit?usp=sharing" class="text-primary hover:underline mt-4 inline-block">
+                    Voir le règlement complet de A à Z
+                </a>
+            </div>
+
+            <!-- Discord Rules -->
+            <div class="mb-20">
+                <h3 class="text-2xl font-bold mb-6 text-white flex items-center">
+                    <i class="fab fa-discord text-secondary mr-3"></i>
+                    Règlement Discord
+                </h3>
+                
+                <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                    <!-- Accordion Item -->
+                    <div class="border-b border-gray-700">
+                        <button class="accordion-btn w-full text-left p-5 bg-gray-800 hover:bg-gray-700 transition duration-200 flex justify-between items-center">
+                            <span class="font-semibold text-lg text-white">1. Respect et comportement</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content bg-gray-750">
+                            <div class="p-5 text-gray-300">
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li>Le respect entre membres est obligatoire.</li>
+                                    <li>Aucun propos discriminatoire, haineux, homophobe, sexiste, raciste ou provocateur ne sera toléré.</li>
+                                    <li>Pas de harcèlement, menaces ou insultes envers d'autres joueurs ou membres du staff.</li>
+                                    <li>Le spam, flood, ou ping abusif sont interdits.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Accordion Item -->
+                    <div class="border-b border-gray-700">
+                        <button class="accordion-btn w-full text-left p-5 bg-gray-800 hover:bg-gray-700 transition duration-200 flex justify-between items-center">
+                            <span class="font-semibold text-lg text-white">2. Communication</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content bg-gray-750">
+                            <div class="p-5 text-gray-300">
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li>Utilise les canaux appropriés pour chaque sujet.</li>
+                                    <li>La publicité pour d'autres serveurs est strictement interdite.</li>
+                                    <li>Les pseudos, photos de profil, ou statuts offensants ou inappropriés sont interdits.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Accordion Item -->
+                    <div class="border-b border-gray-700">
+                        <button class="accordion-btn w-full text-left p-5 bg-gray-800 hover:bg-gray-700 transition duration-200 flex justify-between items-center">
+                            <span class="font-semibold text-lg text-white">3. Sécurité</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content bg-gray-750">
+                            <div class="p-5 text-gray-300">
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li>Ne partage jamais tes informations personnelles ni celles d'autres personnes.</li>
+                                    <li>Les tentatives de phishing, d'arnaque ou de triche sont bannies immédiatement.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Accordion Item -->
+                    <div class="border-b border-gray-700">
+                        <button class="accordion-btn w-full text-left p-5 bg-gray-800 hover:bg-gray-700 transition duration-200 flex justify-between items-center">
+                            <span class="font-semibold text-lg text-white">4. Administration</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content bg-gray-750">
+                            <div class="p-5 text-gray-300">
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li>Les décisions des membres du staff sont à respecter.</li>
+                                    <li>Les contestations de sanctions se font dans les canaux prévus à cet effet.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Rules -->
+            <div class="mb-20">
+                <h3 class="text-2xl font-bold mb-6 text-white flex items-center">
+                    <i class="fas fa-gamepad text-secondary mr-3"></i>
+                    Règlement Global en Jeu
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- RP Obligatoire -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                <i class="fas fa-theater-masks text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white">RP Obligatoire</h4>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                            <li>Le RP est obligatoire en permanence, toute action doit être cohérente avec ton personnage.</li>
+                            <li>L'utilisation de /otage est encouragée pour enrichir les scènes RP.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Powergaming -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                <i class="fas fa-user-ninja text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white">Powergaming</h4>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                            <li>Réaliser des actions irréalistes (ex. : soulever un véhicule seul).</li>
+                            <li>Forcer une action RP sans laisser le choix à l'autre joueur.</li>
+                            <li>S'échapper de la police de façon invraisemblable.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Metagaming -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                <i class="fas fa-brain text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white">Metagaming</h4>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                            <li>Utiliser des infos obtenues via Discord, Twitch ou vocal HRP pour influencer le RP.</li>
+                            <li>Se rendre à un endroit après avoir vu une info HRP.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Freekill / Deathmatch -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                <i class="fas fa-skull text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white">Freekill / Deathmatch</h4>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                            <li>Tuer un autre joueur sans raison RP est interdit.</li>
+                            <li>Freekill (FK) : tuer sans interaction RP.</li>
+                            <li>Random Deathmatch (RDM) : attaque aléatoire sans contexte.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Revenge Kill -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                <i class="fas fa-undo text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white">Revenge Kill</h4>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                            <li>Le Revenge Kill (RK) est interdit.</li>
+                            <li>Tu ne peux pas retourner sur les lieux de ta mort pour te venger.</li>
+                            <li>Tu perds les souvenirs de la scène où tu es mort.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Combat logging -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                <i class="fas fa-sign-out-alt text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white">Combat logging</h4>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                            <li>Se déconnecter en plein RP (interpellation, poursuite, blessure) est interdit.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- No Fear RP -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                <i class="fas fa-running text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white">No Fear RP</h4>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                            <li>Le No Fear RP est interdit.</li>
+                            <li>Ton personnage doit avoir peur de mourir.</li>
+                            <li>Tu ne peux pas sortir une arme si tu es à 1 contre 3.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Fail RP -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                <i class="fas fa-exclamation-triangle text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white">Fail RP</h4>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                            <li>Utilisation d'éléments non-RP (menus admin, UI) en plein RP.</li>
+                            <li>Avoir une arme ou véhicule sans explication RP.</li>
+                            <li>Utilisation de commandes non justifiées.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Illegal RP Rules -->
+            <div class="mb-20">
+                <h3 class="text-2xl font-bold mb-6 text-white flex items-center">
+                    <i class="fas fa-user-secret text-secondary mr-3"></i>
+                    Règlement RP Illégal
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Armes -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                <i class="fas fa-gun text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white">Utilisation d'armes</h4>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                            <li>Les armes lourdes nécessitent une acquisition via trafic validé RP.</li>
+                            <li>Interdiction de se promener armé sans raison valable.</li>
+                            <li>Aucune utilisation de l'arme sur la voie publique sans RP initié.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Drogue -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                <i class="fas fa-joint text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white">Drogue</h4>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                            <li>Les scènes de drogue doivent être cachées, discrètes, et jouées RP.</li>
+                            <li>La transformation et la revente nécessitent un RP de gang structuré.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Enlèvements -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                <i class="fas fa-handcuffs text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white">Enlèvements</h4>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                            <li>Interdits sans plan RP clair.</li>
+                            <li>Aucune scène d'enlèvement "gratuite".</li>
+                            <li>L'otage doit pouvoir jouer son rôle (utiliser /otage).</li>
+                            <li>Les rançons doivent être logiques.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Torture -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                <i class="fas fa-biohazard text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white">Torture / scènes sensibles</h4>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                            <li>Interdites sans consentement clair des deux joueurs.</li>
+                            <li>Aucun RP de viol, pédophilie, torture gratuite ou violence excessive sans validation.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legal RP Rules -->
+            <div class="mb-20">
+                <h3 class="text-2xl font-bold mb-6 text-white flex items-center">
+                    <i class="fas fa-gavel text-secondary mr-3"></i>
+                    Règlement RP Légal
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Police -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                <i class="fas fa-police-car text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white">Forces de l'ordre</h4>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                            <li>Le RP policier doit être structuré, respectueux des lois.</li>
+                            <li>Utilisation des armes à feu encadrée et justifiée.</li>
+                            <li>L'abus de pouvoir (corruption sans validation) est interdit.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- EMS -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                <i class="fas fa-ambulance text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white">EMS / Pompiers</h4>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                            <li>Interdiction de ressusciter quelqu'un sans RP médical.</li>
+                            <li>Temps de soin et transfert doivent être réalistes.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Métiers civils -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                <i class="fas fa-briefcase text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white">Métier civil</h4>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                            <li>Le RP d'entreprise doit être actif, avec interactions régulières.</li>
+                            <li>Aucun "farm" automatisé ou répétitif non RP.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shop Rules -->
+            <div>
+                <h3 class="text-2xl font-bold mb-6 text-white flex items-center">
+                    <i class="fas fa-shopping-cart text-secondary mr-3"></i>
+                    Règlement Boutique & Paiements
+                </h3>
+                
+                <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                    <!-- Accordion Item -->
+                    <div class="border-b border-gray-700">
+                        <button class="accordion-btn w-full text-left p-5 bg-gray-800 hover:bg-gray-700 transition duration-200 flex justify-between items-center">
+                            <span class="font-semibold text-lg text-white">1. Généralités</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content bg-gray-750">
+                            <div class="p-5 text-gray-300">
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li>Tout achat effectué sur notre boutique est considéré comme volontaire et définitif.</li>
+                                    <li>Aucun remboursement ne sera accordé, sauf en cas d'erreur prouvée venant de notre part.</li>
+                                    <li>Si vous êtes mineur, vous devez obtenir l'autorisation de vos parents avant tout achat.</li>
+                                    <li>Estyx est le seul et unique créateur officiel de Liberty RP et le seul à qui vous pouvez faire confiance pour les paiements.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Accordion Item -->
+                    <div class="border-b border-gray-700">
+                        <button class="accordion-btn w-full text-left p-5 bg-gray-800 hover:bg-gray-700 transition duration-200 flex justify-between items-center">
+                            <span class="font-semibold text-lg text-white">2. Moyens de Paiement</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content bg-gray-750">
+                            <div class="p-5 text-gray-300">
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li>Seuls les paiements via PayPal sont acceptés.</li>
+                                    <li>Aucun paiement ne doit être effectué en privé aux membres du staff.</li>
+                                    <li>Tous les paiements doivent être effectués uniquement avec Estyx, le créateur officiel.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Accordion Item -->
+                    <div class="border-b border-gray-700">
+                        <button class="accordion-btn w-full text-left p-5 bg-gray-800 hover:bg-gray-700 transition duration-200 flex justify-between items-center">
+                            <span class="font-semibold text-lg text-white">3. Livraison des Produits</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content bg-gray-750">
+                            <div class="p-5 text-gray-300">
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li>Les produits achetés sont livrés entre 5 et 72 heures maximum, selon l'activité du staff.</li>
+                                    <li>Une preuve de paiement pourra être demandée via ticket sur Discord.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Accordion Item -->
+                    <div class="border-b border-gray-700">
+                        <button class="accordion-btn w-full text-left p-5 bg-gray-800 hover:bg-gray-700 transition duration-200 flex justify-between items-center">
+                            <span class="font-semibold text-lg text-white">4. Litiges et Fraudres</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content bg-gray-750">
+                            <div class="p-5 text-gray-300">
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li>Les remboursements ne sont pas possibles après confirmation de la commande.</li>
+                                    <li>Toute tentative de fraude ou de litige PayPal (chargeback) entraînera un bannissement définitif.</li>
+                                    <li>En cas d'abus ou de triche liée à un achat, le staff se réserve le droit de supprimer les avantages obtenus sans préavis.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Accordion Item -->
+                    <div class="border-b border-gray-700">
+                        <button class="accordion-btn w-full text-left p-5 bg-gray-800 hover:bg-gray-700 transition duration-200 flex justify-between items-center">
+                            <span class="font-semibold text-lg text-white">5. Confidentialité & Sécurité</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content bg-gray-750">
+                            <div class="p-5 text-gray-300">
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li>Vos données sont sécurisées et utilisées uniquement pour gérer vos commandes.</li>
+                                    <li>Aucune donnée bancaire ne transite par notre serveur ou n'est enregistrée.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Accordion Item -->
+                    <div class="border-b border-gray-700">
+                        <button class="accordion-btn w-full text-left p-5 bg-gray-800 hover:bg-gray-700 transition duration-200 flex justify-between items-center">
+                            <span class="font-semibold text-lg text-white">6. Nature des Produits</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content bg-gray-750">
+                            <div class="p-5 text-gray-300">
+                                <ul class="list-disc pl-5 space-y-2">
+                                    
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-white">
+                    Notre <span class="text-primary">Boutique</span>
+                </h2>
+                <div class="w-24 h-1 bg-primary mx-auto"></div>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
+                    Découvrez nos packs et avantages pour améliorer votre expérience sur Liberty RP.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 1000 Liberty Coins -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden shadow-xl transform transition duration-500 hover:scale-105">
+                    <div class="gradient-bg p-6 text-center">
+                        <h3 class="text-2xl font-bold text-white">1000 Liberty Coins</h3>
+                        <div class="text-white mt-2">Pack de démarrage</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <span class="text-4xl font-bold text-primary">7.99€</span>
+                        </div>
+                        <ul class="space-y-3 text-gray-300 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                1000 Liberty Coins
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Monnaie in-game
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Livraison rapide
+                            </li>
+                        </ul>
+                        <a href="https://discord.com/channels/1356235324925284482/1357147745118326784" class="block w-full bg-primary hover:bg-purple-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300 text-center">
+                            Acheter maintenant
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 2000 Liberty Coins -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden shadow-xl transform transition duration-500 hover:scale-105 border-2 border-primary">
+                    <div class="relative">
+                        <div class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+                            POPULAIRE
+                        </div>
+                        <div class="gradient-bg p-6 text-center">
+                            <h3 class="text-2xl font-bold text-white">2000 Liberty Coins</h3>
+                            <div class="text-white mt-2">Meilleur rapport qualité/prix</div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <span class="text-4xl font-bold text-primary">15.99€</span>
+                        </div>
+                        <ul class="space-y-3 text-gray-300 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                2000 Liberty Coins
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Monnaie in-game
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Livraison rapide
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Bonus de bienvenue
+                            </li>
+                        </ul>
+                        <a href="https://discord.com/channels/1356235324925284482/1357147745118326784" class="block w-full bg-primary hover:bg-purple-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300 text-center">
+                            Acheter maintenant
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- VIP -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden shadow-xl transform transition duration-500 hover:scale-105">
+                    <div class="gradient-bg p-6 text-center">
+                        <h3 class="text-2xl font-bold text-white">VIP</h3>
+                        <div class="text-white mt-2">Avantages exclusifs</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <span class="text-4xl font-bold text-primary">7,99€</span>
+                            <span class="text-gray-400">/mois</span>
+                        </div>
+                        <ul class="space-y-3 text-gray-300 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Accès VIP 30 jours
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Avantages exclusifs
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Nouveaux Véhicules VIP
+                                <span class="text-gray-400">/mois</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Skin exclusif
+                            </li>
+                        </ul>
+                        <a href="https://discord.com/channels/1356235324925284482/1357147745118326784" class="block w-full bg-primary hover:bg-purple-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300 text-center">
+                            Acheter maintenant
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Coin Packs -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                <!-- 3000 Liberty Coins -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden shadow-xl transform transition duration-500 hover:scale-105">
+                    <div class="gradient-bg p-6 text-center">
+                        <h3 class="text-2xl font-bold text-white">3000 Liberty Coins</h3>
+                        <div class="text-white mt-2">Pack intermédiaire</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <span class="text-4xl font-bold text-primary">22.99€</span>
+                        </div>
+                        <ul class="space-y-3 text-gray-300 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                3000 Liberty Coins
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Monnaie in-game
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Livraison rapide
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Bonus supplémentaire
+                            </li>
+                        </ul>
+                        <a href="https://discord.com/channels/1356235324925284482/1357147745118326784" class="block w-full bg-primary hover:bg-purple-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300 text-center">
+                            Acheter maintenant
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 5000 Liberty Coins -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden shadow-xl transform transition duration-500 hover:scale-105">
+                    <div class="gradient-bg p-6 text-center">
+                        <h3 class="text-2xl font-bold text-white">5000 Liberty Coins</h3>
+                        <div class="text-white mt-2">Pack ultime</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <span class="text-4xl font-bold text-primary">35.99€</span>
+                        </div>
+                        <ul class="space-y-3 text-gray-300 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                5000 Liberty Coins
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Monnaie in-game
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Livraison instantanée
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Bonus VIP 7 jours
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                Véhicule exclusif
+                            </li>
+                        </ul>
+                        <a href="https://discord.com/channels/1356235324925284482/1357147745118326784" class="block w-full bg-primary hover:bg-purple-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300 text-center">
+                            Acheter maintenant
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Staff Section -->
+<section id="staff" class="py-20 bg-gray-900">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-4 text-white">
+                Notre <span class="text-primary">Équipe</span>
+            </h2>
+            <div class="w-24 h-1 bg-primary mx-auto"></div>
+            <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
+                Rencontrez l'équipe dévouée qui fait vivre Liberty RP au quotidien.
+            </p>
+            <div class="mt-6 bg-gray-800 p-4 rounded-lg max-w-2xl mx-auto">
+                <p class="text-primary font-bold">Estyx est le seul et unique créateur officiel de Liberty RP</p>
+                <p class="text-gray-300 mt-2">Je suis le seul auquel vous pouvez faire confiance dans quoi que ce soit concernant les achats boutiques.</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8">
+            <!-- Estyx -->
+            <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg transform transition duration-500 hover:scale-105 border-2 border-primary">
+                <div class="relative">
+                    <img src="https://i.imgur.com/3KOkr4X.gif" alt="Estyx" class="w-full h-48 object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                        <h3 class="text-xl font-bold text-white">Estyx</h3>
+                        <div class="text-primary font-medium">Créateur</div>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <p class="text-gray-300 text-sm">
+                        Créateur officiel et unique de Liberty RP. Seule personne autorisée à gérer les paiements.
+                    </p>
+                    <div class="flex justify-center space-x-4 mt-4">
+                        <a href="https://discord.gg/libertyfa" class="text-gray-400 hover:text-primary transition">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parano -->
+            <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg transform transition duration-500 hover:scale-105 border-2 border-primary">
+                <div class="relative">
+                    <img src="https://i.imgur.com/swEyhk5.gif" alt="Parano" class="w-full h-48 object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                        <h3 class="text-xl font-bold text-white">Parano</h3>
+                        <div class="text-primary font-medium">Créateur + Investisseur</div>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <p class="text-gray-300 text-sm">
+                        Parano est l’un des créateurs du serveur et a investi financièrement pour le développement de Liberty RP.
+                    </p>
+                    <div class="flex justify-center space-x-4 mt-4">
+                        <a href="https://discord.gg/libertyfa" class="text-gray-400 hover:text-primary transition">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ceroxhhh -->
+            <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg transform transition duration-500 hover:scale-105 border-2 border-primary">
+                <div class="relative">
+                    <img src="https://i.imgur.com/qTy1RuE.gif" alt="Ceroxhhh" class="w-full h-48 object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                        <h3 class="text-xl font-bold text-white">Ceroxhhh</h3>
+                        <div class="text-primary font-medium">Créateur</div>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <p class="text-gray-300 text-sm">
+                        Ceroxhhh est créateur de Liberty RP et gère principalement toute l’organisation du serveur Discord.
+                    </p>
+                    <div class="flex justify-center space-x-4 mt-4">
+                        <a href="https://discord.gg/libertyfa" class="text-gray-400 hover:text-primary transition">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Join Section -->
+    <section id="join" class="py-20 gradient-bg">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6 text-white">
+                Prêt à nous rejoindre ?
+            </h2>
+            <p class="text-xl mb-8 text-gray-200 max-w-2xl mx-auto">
+                Rejoignez dès maintenant la communauté Liberty RP et vivez une expérience de jeu unique.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://discord.gg/libertyfa" class="bg-white hover:bg-gray-100 text-gray-900 font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 flex items-center justify-center">
+                    <i class="fab fa-discord mr-2"></i> Rejoindre le Discord
+                </a>
+                <button id="connect-server" class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    Se connecter au serveur
+                </button>
+            </div>
+            <div id="fivem-error" class="mt-4 text-red-400 hidden">
+                Erreur : Vous n'avez pas FiveM sur votre ordinateur
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-white">
+                    Nous <span class="text-primary">Contacter</span>
+                </h2>
+                <div class="w-24 h-1 bg-primary mx-auto"></div>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
+                    Vous avez une question ou besoin d'aide ? N'hésitez pas à nous contacter.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-white">Envoyez-nous un message</h3>
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-300 mb-2">Votre Pseudo discord + ID discord</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white" required>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-gray-300 mb-2">Sujet</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-300 mb-2">Votre message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary hover:bg-purple-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                            Envoyer le message
+                        </button>
+                    </form>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-white">Nous Rejoindre</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-primary rounded-full w-12 h-12 flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fab fa-discord text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-white mb-1">Discord</h4>
+                                <a href="https://discord.gg/libertyfa" class="text-gray-400 hover:text-primary transition">discord.gg/libertyfa</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12">
+                        <h4 class="text-xl font-semibold text-white mb-4">Suivez-nous</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://discord.gg/libertyfa" class="bg-gray-700 hover:bg-gray-600 w-12 h-12 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-discord text-xl text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-shield-alt text-2xl text-primary"></i>
+                        <h3 class="text-2xl font-bold text-white">Liberty <span class="text-yellow-300">RP</span></h3>
+                    </div>
+                    <p class="text-gray-400">
+                        Le serveur FiveM RolePlay le plus immersif et respectueux de la communauté.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Liens rapides</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-primary transition">Accueil</a></li>
+                        <li><a href="#rules" class="text-gray-400 hover:text-primary transition">Règlement</a></li>
+                        <li><a href="#shop" class="text-gray-400 hover:text-primary transition">Boutique</a></li>
+                        <li><a href="#staff" class="text-gray-400 hover:text-primary transition">Staff</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-primary transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Ressources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://docs.google.com/presentation/d/1Gb8S18t3k-hzBuxp4oi8PPb9nTBRIcGHhU9tt4ioz4I/edit?usp=sharing" class="text-gray-400 hover:text-primary transition">Guide RP</a></li>
+                        <li><a href="https://discord.gg/libertyfa" class="text-gray-400 hover:text-primary transition">FAQ</a></li>
+                        <li><a href="https://discord.gg/libertyfa" class="text-gray-400 hover:text-primary transition">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">
+                    &copy; 2025 Liberty RP. Tous droits réservés.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="https://discord.gg/libertyfa" class="text-gray-400 hover:text-primary transition">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-opacity duration-300 opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Accordion functionality
+        document.querySelectorAll('.accordion-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            const webhookUrl = 'https://discord.com/api/webhooks/1391927045478678618/Ltu_tFj1OHpmxEztNHFuKz9Vknf7QrTQo3BIii9Fybi5PVM1z2uyEJQlm8sJ-_5a13A8';
+            
+            const embed = {
+                title: 'Nouveau message de contact',
+                color: 0xd946ef,
+                fields: [
+                    {
+                        name: 'Nom',
+                        value: name,
+                        inline: true
+                    },
+                    {
+                        name: 'Email',
+                        value: email,
+                        inline: true
+                    },
+                    {
+                        name: 'Sujet',
+                        value: subject
+                    },
+                    {
+                        name: 'Message',
+                        value: message
+                    }
+                ],
+                timestamp: new Date().toISOString()
+            };
+            
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    embeds: [embed]
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Votre message a été envoyé avec succès !');
+                    document.getElementById('contact-form').reset();
+                } else {
+                    alert('Une erreur est survenue lors de l\'envoi du message. Veuillez nous contacter directement sur Discord.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Une erreur est survenue lors de l\'envoi du message. Veuillez nous contacter directement sur Discord.');
+            });
+        });
+
+        // Mobile menu toggle (placeholder - would need more implementation)
+        document.querySelector('.md\\:hidden').addEventListener('click', () => {
+            alert('Menu mobile à implémenter');
+        });
+
+        // FiveM connection functionality
+        document.getElementById('connect-server').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Try to launch FiveM
+            try {
+                // This will work only if FiveM is installed and registered as a protocol handler
+                window.location.href = 'fivem://connect/server.ip';
+                
+                // If FiveM is not installed, this won't work and we'll show an error after a timeout
+                setTimeout(() => {
+                    if (!document.hidden) {
+                        document.getElementById('fivem-error').classList.remove('hidden');
+                    }
+                }, 1000);
+            } catch (e) {
+                document.getElementById('fivem-error').classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
